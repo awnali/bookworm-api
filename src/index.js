@@ -1,12 +1,13 @@
-import express from 'express'
-import path from 'path'
+import express from 'express';
+import path from 'path';
 
 const app = express();
-app.post('/api/auth', (req,res) => {
-    setTimeout(() => res.status(400).json({errors:{global: "Invalid Credentials"}}), 1000);
+app.post('/api/auth', (req, res) => {
+  setTimeout(
+    () => res.status(400).json({ errors: { global: 'Invalid Credentials' } }),
+    1000,
+  );
 });
-app.get('/*',(req, res) => {
-    res.sendFile(path.join(__dirname,'index.html'));
-});
+app.get('/*', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
 
-app.listen(8080,() => console.log('bookworm api is working on port: 8080'));
+app.listen(8080, () => console.log('bookworm api is working on port: 8080'));
